@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+  >
+
+  <title>Tap Battle</title>
+
+  <link rel="stylesheet" href="/style.css">
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+
+<body>
+
+  <main class="app">
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40">
+            <circle cx="20" cy="20" r="15"></circle>
+            <path d="M20 10v20M10 20h20"></path>
+          </svg>
+        </div>
+
+        <div>
+          <div class="brand-title">TAP BATTLE</div>
+          <div class="brand-subtitle">REAL-TIME DUEL</div>
+        </div>
+      </div>
+
+      <div id="connectionStatus" class="status offline">
+        OFFLINE
+      </div>
+    </header>
+
+    <section id="homeScreen" class="screen active">
+
+      <div class="hero">
+        <div class="hero-title">TAP BATTLE</div>
+        <div class="hero-description">
+          Create a room and challenge another player.
+        </div>
+      </div>
+
+      <div class="menu">
+
+        <button id="createButton" class="primary-button">
+          CREATE GAME
+        </button>
+
+        <div class="separator">
+          <span>OR</span>
+        </div>
+
+        <div class="join-box">
+
+          <label for="roomCode">
+            ROOM CODE
+          </label>
+
+          <input
+            id="roomCode"
+            type="text"
+            inputmode="numeric"
+            autocomplete="off"
+            maxlength="6"
+            placeholder="000000"
+          >
+
+          <button id="joinButton" class="secondary-button">
+            JOIN GAME
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="roomScreen" class="screen">
+
+      <div class="room-header">
+
+        <div class="small-label">
+          ROOM
+        </div>
+
+        <div id="roomCodeDisplay" class="room-code">
+          ------
+        </div>
+
+        <div class="room-hint">
+          Share this code with your opponent.
+        </div>
+
+      </div>
+
+      <div class="players">
+
+        <div class="player-card" id="playerCard1">
+
+          <div class="player-number">
+            PLAYER 1
+          </div>
+
+          <div class="player-name" id="player1Name">
+            WAITING
+          </div>
+
+          <div class="player-status" id="player1Status">
+            WAITING
+          </div>
+
+        </div>
+
+        <div class="versus">
+          <span>VS</span>
+        </div>
+
+        <div class="player-card" id="playerCard2">
+
+          <div class="player-number">
+            PLAYER 2
+          </div>
+
+          <div class="player-name" id="player2Name">
+            WAITING
+          </div>
+
+          <div class="player-status" id="player2Status">
+            WAITING
+          </div>
+
+        </div>
+
+      </div>
+
+      <div id="roomMessage" class="room-message">
+        Waiting for another player.
+      </div>
+
+      <div class="room-actions">
+
+        <button id="readyButton" class="primary-button">
+          READY
+        </button>
+
+        <button id="leaveButton" class="danger-button">
+          LEAVE ROOM
+        </button>
+
+      </div>
+
+    </section>
+
+    <section id="gameScreen" class="screen">
+
+      <div class="game-header">
+        <div>
+          <div class="small-label">PLAYER</div>
+          <div id="gamePlayerName">PLAYER</div>
+        </div>
+
+        <div class="timer">
+          <div class="small-label">TIME</div>
+          <div id="gameTimer">30</div>
+        </div>
+
+        <div class="score">
+          <div class="small-label">SCORE</div>
+          <div id="gameScore">0</div>
+        </div>
+      </div>
+
+      <div class="battle-area">
+
+        <button id="tapButton" class="tap-button">
+          TAP
+        </button>
+
+      </div>
+
+      <div class="opponent-score">
+        <div class="small-label">OPPONENT</div>
+        <div id="opponentScore">0</div>
+      </div>
+
+    </section>
+
+    <section id="resultScreen" class="screen">
+
+      <div class="result">
+
+        <div class="small-label">
+          MATCH RESULT
+        </div>
+
+        <div id="resultTitle" class="result-title">
+          WAITING
+        </div>
+
+        <div id="resultScore" class="result-score">
+          0 — 0
+        </div>
+
+        <button id="backHomeButton" class="primary-button">
+          BACK TO HOME
+        </button>
+
+      </div>
+
+    </section>
+
+    <div id="toast" class="toast"></div>
+
+  </main>
+
+  <script src="/game.js"></script>
+
+</body>
+</html>
