@@ -703,10 +703,11 @@ app.post("/telegram/webhook", async (req, res) => {
     }
 
     const text = message.text.trim();
+const command = text.split(/\s+/)[0].toLowerCase();
 
-    if (!text.startsWith("/start")) {
-      return;
-    }
+if (command !== "/start") {
+  return;
+}
 
     const chatId = message.chat.id;
     const firstName = message.from?.first_name || "Player";
